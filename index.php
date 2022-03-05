@@ -24,7 +24,7 @@
         .attention {
             background-color: yellow;
             color: #0d6efd;
-            padding: 5px;
+            padding: 6px;
             border-radius: 50%;
         }
 
@@ -57,7 +57,7 @@
         echo ("
             <section class='card_stock'>
                 <h3>$title</h3>
-                <p>Дивидендная доходность:  <span class='attention'><b>$dividend_yield%</b></span>. 
+                <p><b>Дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>. 
                 Текущая цена: $last_price $currency. Размер дивидендов: $dividend_amount $currency.</p>
                 $description
             </section>

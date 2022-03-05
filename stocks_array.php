@@ -69,32 +69,3 @@ function bubble_sort($arr)
 
 $sorted_stocks = bubble_sort($stocks);
 /*************** Конец сортировки            ****************/
-?>
-
-<!--
-    $data = json_encode(json_decode($j), JSON_PRETTY_PRINT);
-    // echo '
-    <pre>' . $data . '</pre>';
-
-    /******************-
-    [
-    "figi" => "",
-    "ticker" => "",
-    "name" => "",
-    "dividends" => "",
-    ],
-    "figi": [
-    "BBG0047315Y7", // SBERP
-    "BBG004S681W1", // MTSS
-    "BBG000PR0PJ6", // NLMK
-    "BBG004731032", // LKOH
-    "BBG004730RP0", // GAZP
-    "BBG004S689R0", // PHOR
-    "BBG000QFH687", // TGKA
-    "BBG004S681M2", // SNGSP
-    "BBG000GQSVC2", // NKNCP
-    "BBG004S68BR5" // NMTP
-    ]
-    */
-    ?>
-    -->

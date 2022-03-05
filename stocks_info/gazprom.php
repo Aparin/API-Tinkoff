@@ -50,7 +50,7 @@ $gazprom = [
 </tr>
 </tbody>
 </table>
-    <p>Купить акции Газпрома можно 
+    <p><b>Купить</b> акции Газпрома можно 
     <a class='attention' href='https://www.finam.ru/quote/moex-akcii/gazprom/?AgencyBackOfficeID=46&amp;agent=22d0a439-78b4-4932-a042-fdc54a8f0b0c&amp;utm_term=gazprom' target='_blank' rel='nofollow noopener'>
     здесь</a>
     "
