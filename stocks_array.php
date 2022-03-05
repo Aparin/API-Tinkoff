@@ -18,7 +18,7 @@ function get_price($arr, $figi)
         }
     }
 }
-//echo get_price($arr, "BBG004730RP0");
+
 class Share
 {
     public $figi, $title, $last_price, $time, $dividend_amount, $currency, $description, $dividend_yield;
@@ -31,7 +31,7 @@ class Share
         $this->dividend_amount = $dividend_amount;
         $this->currency = $currency;
         $this->description = $description;
-        $this->dividend_yield = round($this->dividend_amount / $this->last_price * 100, 1);
+        $this->dividend_yield = number_format(round($this->dividend_amount / $this->last_price * 100, 1), 1);
     }
 }
 
@@ -59,6 +59,8 @@ include './stocks_info/mts.php';
 array_push($stocks, create_stock($stocks_data, $mts));
 include './stocks_info/nlmk.php';
 array_push($stocks, create_stock($stocks_data, $nlmk));
+
+
 
 /*************** Данные акций Конец ****************/
 

@@ -1,7 +1,7 @@
 <?php
 
 $nlmk = [
-    $figi = "BBG000PR0PJ6",
+    $figi = "BBG004S681B4",
     $title = "НЛМК (тикер: NLMK)",
     $dividend_amount = 34,
     $currency = "руб",
