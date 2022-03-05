@@ -31,7 +31,7 @@ class Share
         $this->dividend_amount = $dividend_amount;
         $this->currency = $currency;
         $this->description = $description;
-        $this->dividend_yield = round($this->dividend_amount / $this->last_price * 100, 2);
+        $this->dividend_yield = round($this->dividend_amount / $this->last_price * 100, 1);
     }
 }
 
@@ -57,6 +57,8 @@ include './stocks_info/gazprom.php';
 array_push($stocks, create_stock($stocks_data, $gazprom));
 include './stocks_info/mts.php';
 array_push($stocks, create_stock($stocks_data, $mts));
+include './stocks_info/nlmk.php';
+array_push($stocks, create_stock($stocks_data, $nlmk));
 
 /*************** Данные акций Конец ****************/
 
@@ -68,7 +70,7 @@ function bubble_sort($arr)
     for ($i = 0; $i < $size; $i++) {
         for ($j = 0; $j < $size - $i; $j++) {
             $k = $j + 1;
-            if ($arr[$k]->dividend_amount > $arr[$j]->dividend_amount) {
+            if ($arr[$k]->dividend_yield > $arr[$j]->dividend_yield) {
                 // Swap elements at indices: $j, $k
                 list($arr[$j], $arr[$k]) = array($arr[$k], $arr[$j]);
             }
