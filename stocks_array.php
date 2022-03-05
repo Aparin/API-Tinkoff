@@ -13,18 +13,20 @@ function get_price($arr, $figi)
             $rub = empty($value->{'price'}->{'units'}) ? "0" : ($value->{'price'}->{'units'});
             $kop = empty($value->{'price'}->{'nano'}) ? "00" : ($value->{'price'}->{'nano'});
             $price = number_format(($rub . "." . $kop), 2, '.', ',');
-            return $price;
+            $time = $value->{'time'};
+            return [$price, $time];
         }
     }
 }
 //echo get_price($arr, "BBG004730RP0");
 class Share
 {
-    public $figi, $title, $last_price, $dividend_amount, $currency, $description, $dividend_yield;
-    function __construct($figi, $title, $last_price, $dividend_amount, $currency, $description)
+    public $figi, $title, $last_price, $time, $dividend_amount, $currency, $description, $dividend_yield;
+    function __construct($figi, $title, $last_price, $time, $dividend_amount, $currency, $description)
     {
         $this->figi = $figi;
         $this->title = $title;
+        $this->time = $time;
         $this->last_price = $last_price;
         $this->dividend_amount = $dividend_amount;
         $this->currency = $currency;
@@ -39,8 +41,14 @@ $stocks = [];
 function create_stock($stocks_data, $arg)
 {
     list($figi, $title, $dividend_amount, $currency, $description) = $arg;
-    $last_price = get_price($stocks_data, $figi);
-    $some_stock = new Share($figi, $title, $last_price, $dividend_amount, $currency, $description);
+    list($last_price, $full_time) = get_price($stocks_data, $figi);
+    $time = substr($full_time, 8, 2) . '.' . // день
+        substr($full_time, 5, 2) . '.' . // месяц
+        substr($full_time, 0, 4) . // год
+        ' ' .
+        substr($full_time, 11, 2) . ':' . // час (гринвич)
+        substr($full_time, 14, 2); // минута
+    $some_stock = new Share($figi, $title, $last_price, $time, $dividend_amount, $currency, $description);
     return ($some_stock);
 }
 include './stocks_info/sberp.php';

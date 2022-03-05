@@ -50,6 +50,7 @@
     {
         $title = $stock->title;
         $last_price = $stock->last_price;
+        $time = $stock->time;
         $dividend_amount = $stock->dividend_amount;
         $currency = $stock->currency;
         $description = $stock->description;
@@ -57,8 +58,8 @@
         echo ("
             <section class='card_stock'>
                 <h3>$title</h3>
-                <p><b>Дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>. 
-                Текущая цена: $last_price $currency. Размер дивидендов: $dividend_amount $currency.</p>
+                <p><b>Ожидаемая дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>. 
+                Цена: $last_price $currency <i>(на $time GMT)</i>. Размер дивидендов: $dividend_amount $currency.</p>
                 $description
             </section>
             ");
