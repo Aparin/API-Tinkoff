@@ -55,6 +55,8 @@ include './stocks_info/sberp.php';
 array_push($stocks, create_stock($stocks_data, $sberp));
 include './stocks_info/gazprom.php';
 array_push($stocks, create_stock($stocks_data, $gazprom));
+include './stocks_info/mts.php';
+array_push($stocks, create_stock($stocks_data, $mts));
 
 /*************** Данные акций Конец ****************/
 
