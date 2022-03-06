@@ -63,7 +63,14 @@ include 'stocks_info/lukoil.php';
 array_push($stocks, create_stock($stocks_data, $lukoil));
 include 'stocks_info/phosagro.php';
 array_push($stocks, create_stock($stocks_data, $phosagro));
-
+//include 'stocks_info/tgk1.php';
+//array_push($stocks, create_stock($stocks_data, $tgk1));
+include 'stocks_info/SNGSP.php';
+array_push($stocks, create_stock($stocks_data, $SNGSP));
+include 'stocks_info/NKNCP.php';
+array_push($stocks, create_stock($stocks_data, $NKNCP));
+include 'stocks_info/NMTP.php';
+array_push($stocks, create_stock($stocks_data, $NMTP));
 
 
 /*************** Данные акций Конец ****************/
