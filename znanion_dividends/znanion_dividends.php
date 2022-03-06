@@ -53,7 +53,7 @@ function dividend_stocks()
       function create_card($stock)
       {
             $title = $stock->title;
-            $last_price = $stock->last_price;
+            $last_price = number_format($stock->last_price, 2, '.', ',');
             $time = $stock->time;
             $dividend_amount = $stock->dividend_amount;
             $currency = $stock->currency;

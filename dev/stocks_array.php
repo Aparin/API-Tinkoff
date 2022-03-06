@@ -12,7 +12,7 @@ function get_price($arr, $figi)
         if ($figi == $current_ticker) {
             $rub = empty($value->{'price'}->{'units'}) ? "0" : ($value->{'price'}->{'units'});
             $kop = empty($value->{'price'}->{'nano'}) ? "00" : ($value->{'price'}->{'nano'});
-            $price = number_format(($rub . "." . $kop), 2, '.', ',');
+            $price = $rub . "." . $kop;
             $time = $value->{'time'};
             return [$price, $time];
         }
@@ -59,7 +59,8 @@ include './stocks_info/mts.php';
 array_push($stocks, create_stock($stocks_data, $mts));
 include './stocks_info/nlmk.php';
 array_push($stocks, create_stock($stocks_data, $nlmk));
-
+include './stocks_info/lukoil.php';
+array_push($stocks, create_stock($stocks_data, $lukoil));
 
 
 /*************** Данные акций Конец ****************/
