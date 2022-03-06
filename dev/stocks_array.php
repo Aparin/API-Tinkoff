@@ -51,16 +51,19 @@ function create_stock($stocks_data, $arg)
     $some_stock = new Share($figi, $title, $last_price, $time, $dividend_amount, $currency, $description);
     return ($some_stock);
 }
-include './stocks_info/sberp.php';
+include 'stocks_info/sberp.php';
 array_push($stocks, create_stock($stocks_data, $sberp));
-include './stocks_info/gazprom.php';
+include 'stocks_info/gazprom.php';
 array_push($stocks, create_stock($stocks_data, $gazprom));
-include './stocks_info/mts.php';
+include 'stocks_info/mts.php';
 array_push($stocks, create_stock($stocks_data, $mts));
-include './stocks_info/nlmk.php';
+include 'stocks_info/nlmk.php';
 array_push($stocks, create_stock($stocks_data, $nlmk));
-include './stocks_info/lukoil.php';
+include 'stocks_info/lukoil.php';
 array_push($stocks, create_stock($stocks_data, $lukoil));
+include 'stocks_info/phosagro.php';
+array_push($stocks, create_stock($stocks_data, $phosagro));
+
 
 
 /*************** Данные акций Конец ****************/

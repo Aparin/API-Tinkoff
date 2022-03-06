@@ -11,7 +11,7 @@ $mts = [
     <a class='attention' href='https://www.finam.ru/quote/moex-akcii/mts/?AgencyBackOfficeID=46&agent=22d0a439-78b4-4932-a042-fdc54a8f0b0c&utm_term=mts' target='_blank' rel='nofollow noopener'>
     здесь</a>
     </p>
-    <p><b>Подробнее</b> об акциях МТС
+    <p><b>Подробнее</b> про МТС
     <a class='attention' href='https://znanion.ru/dengi/investicii/mts-dividendy-i-dohodnost-akcij/' target='_blank' >здесь</a>
     </p>
     "

@@ -5,7 +5,6 @@ $j = @file_get_contents('https://znanion.ru/files/dengi/invest/tinkoff_last_pric
 $decode = (array)json_decode($j); //array
 $stocks_data = $decode["lastPrices"];
 
-
 function get_price($arr, $figi)
 {
     foreach ($arr as $key => $value) {
@@ -62,6 +61,10 @@ include 'stocks_info/nlmk.php';
 array_push($stocks, create_stock($stocks_data, $nlmk));
 include 'stocks_info/lukoil.php';
 array_push($stocks, create_stock($stocks_data, $lukoil));
+include 'stocks_info/phosagro.php';
+array_push($stocks, create_stock($stocks_data, $phosagro));
+
+
 
 /*************** Данные акций Конец ****************/
 
