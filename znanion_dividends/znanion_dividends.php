@@ -13,7 +13,9 @@ if (!defined('ABSPATH')) {
 
 
 function dividend_stocks()
-{ ?>
+{
+      ob_start();
+?>
       <style>
             .card_stock {
                   border: 1px dotted grey;
@@ -33,9 +35,10 @@ function dividend_stocks()
                   border-radius: 50%;
             }
 
-            h3 {
+            h3.card_stock {
                   color: white;
-                  padding-top: 10px;
+                  padding: 10px;
+                  font-size: 20px;
             }
 
             h2 {
@@ -61,7 +64,7 @@ function dividend_stocks()
             $dividend_yield = $stock->dividend_yield;
             echo ("
             <section class='card_stock'>
-                <h3>$title</h3>
+                <h3 class='card_stock'>$title</h3>
                 <p><b>Ожидаемая дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>.</p> 
                 <p>Цена: $last_price $currency <i>(на $time GMT)</i>. Размер дивидендов: $dividend_amount $currency.</p>
                 $description
@@ -73,6 +76,10 @@ function dividend_stocks()
             create_card($stock);
       }
       /*************** Конец вывода        ****************/
+
+      $html = ob_get_contents(); // упаковка html в переменную
+      ob_end_clean(); // очистка вывода
+      return $html; //возврат переменной
 }
 
 add_shortcode('dividend_stocks', 'dividend_stocks');
