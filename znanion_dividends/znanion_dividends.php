@@ -44,8 +44,6 @@ function dividend_stocks()
             h2 {
                   color: #49423d;
             }
-
-            ;
       </style>
       <h2>Российские дивидендные акции: ожидаемые дивиденды в 2022</h2>
 
@@ -56,7 +54,7 @@ function dividend_stocks()
       function create_card($stock)
       {
             $title = $stock->title;
-            $last_price = number_format($stock->last_price, 2, '.', ',');
+            $last_price = (float)$stock->last_price < 1 ? $stock->last_price : number_format($stock->last_price, 2, '.', ',');
             $time = $stock->time;
             $dividend_amount = $stock->dividend_amount;
             $currency = $stock->currency;

@@ -11,8 +11,8 @@ function get_price($arr, $figi)
         $current_ticker = $value->{'figi'};
         if ($figi == $current_ticker) {
             $rub = empty($value->{'price'}->{'units'}) ? "0" : ($value->{'price'}->{'units'});
-            $kop = empty($value->{'price'}->{'nano'}) ? "00" : ($value->{'price'}->{'nano'});
-            $price = $rub . "." . $kop;
+            $kop = empty($value->{'price'}->{'nano'}) ? "00" : ($value->{'price'}->{'nano'} / 1000000000);
+            $price = $rub + $kop;
             $time = $value->{'time'};
             return [$price, $time];
         }
@@ -63,8 +63,8 @@ include 'stocks_info/lukoil.php';
 array_push($stocks, create_stock($stocks_data, $lukoil));
 include 'stocks_info/phosagro.php';
 array_push($stocks, create_stock($stocks_data, $phosagro));
-//include 'stocks_info/tgk1.php';
-//array_push($stocks, create_stock($stocks_data, $tgk1));
+include 'stocks_info/tgk1.php';
+array_push($stocks, create_stock($stocks_data, $tgk1));
 include 'stocks_info/SNGSP.php';
 array_push($stocks, create_stock($stocks_data, $SNGSP));
 include 'stocks_info/NKNCP.php';

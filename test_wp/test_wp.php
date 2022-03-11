@@ -54,7 +54,7 @@ function test_wp()
     function create_card($stock)
     {
         $title = $stock->title;
-        $last_price = number_format($stock->last_price, 2, '.', ',');
+        $last_price = (float)$stock->last_price < 1 ? $stock->last_price : number_format($stock->last_price, 2, '.', ',');
         $time = $stock->time;
         $dividend_amount = $stock->dividend_amount;
         $currency = $stock->currency;

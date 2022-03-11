@@ -28,16 +28,19 @@
             border-radius: 50%;
         }
 
-        h3 {
+        h3.card_stock {
             color: white;
-            padding-top: 10px;
+            padding: 10px;
+            font-size: 20px;
         }
 
         h2 {
             color: #49423d;
         }
 
-        ;
+        p.special {
+            line-height: 1.7;
+        }
     </style>
     <h2>Российские дивидендные акции: ожидаемые дивиденды в 2022</h2>
     <?php
@@ -49,7 +52,7 @@
     function create_card($stock)
     {
         $title = $stock->title;
-        $last_price = number_format($stock->last_price, 2, '.', ',');
+        $last_price = (float)$stock->last_price < 1 ? $stock->last_price : number_format($stock->last_price, 2, '.', ',');
         $time = $stock->time;
         $dividend_amount = $stock->dividend_amount;
         $currency = $stock->currency;
@@ -58,8 +61,8 @@
         echo ("
             <section class='card_stock'>
                 <h3>$title</h3>
-                <p><b>Ожидаемая дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>. 
-                Цена: $last_price $currency <i>(на $time GMT)</i>. Размер дивидендов: $dividend_amount $currency.</p>
+                <p class='special'><b>Ожидаемая дивидендная доходность</b>:  <span class='attention'><b>$dividend_yield%</b></span>.<br /> 
+                Цена: $last_price $currency <i>(на $time GMT)</i>. <br /> Размер дивидендов: $dividend_amount $currency.</p>
                 $description
             </section>
             ");
